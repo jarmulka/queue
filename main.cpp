@@ -1,16 +1,15 @@
-
 #include <stdio.h>
 #include "queue.h"
 
 void menu(void)
 {
     printf("\n");
-    printf("1 - Dodaj liczbe do kolejki (Push)\n");
-    printf("2 - Odczytaj pierwsza wartosc z kolejki (Top)\n");
-    printf("3 - Usun wartosc z kolejki (Pop)\n");
-    printf("4 - Sprawdz czy kolejka jest pusta\n");
-    printf("5 - Sprawdz czy kolejka jest pelna\n");
-    printf("6 - Koniec programu\n");
+    printf("1 - Add a number to the queue (Push)\n");
+    printf("2 - Read the first value from the TOP\n");
+    printf("3 - Delete a value from the queue (POP)\n");
+    printf("4 - Check if the queue is empty\n");
+    printf("5 - Check if the queue is full\n");
+    printf("6 - Exit the program\n");
     printf("\n");
 }
 
@@ -18,7 +17,7 @@ int main()
 {
     int temp = 0;
     int option = 0;
-    printf("kolejka - implementacja w tablicy statycznej\n");
+    printf("Queue- implementation in a static array\n");
     while (1)
     {
         menu();
@@ -29,12 +28,12 @@ int main()
         {
             case 1:
                 if ( !isQueueFull() ){
-                    printf("Podaj wartosc: ");
+                    printf("Enter a value: ");
                     scanf("%d", &temp);
                     Add(temp);
                 }
                 else {
-                    printf("operacja niedozwolona kolejka pelna!!!\n\n");
+                    printf("Action not allowed, the queue is full!\n\n");
                 }
 
                 break;
@@ -42,10 +41,10 @@ int main()
             case 2:
                 if (!isQueueEmpty()) {
                     temp = First();
-                    printf("Odczytana wartosc: %d", temp);
+                    printf("The read value: %d", temp);
                 }
                 else {
-                    printf("operacja niedozwolona kolejka pusta!!!\n\n");
+                    printf("Action now allowed, the queue is empty!\n\n");
                 }
 
                 break;
@@ -53,37 +52,37 @@ int main()
             case 3:
                 if (!isQueueEmpty()) {
                     temp = Remove();
-                    printf("Odczytana wartosc: %d", temp);
+                    printf("The read value: %d", temp);
                 }
                 else {
-                    printf("operacja niedozwolona kolejka pusta!!!\n\n");
+                    printf("Action now allowed, the queue is empty!\n\n");
                 }
                 break;
 
             case 4:
                 if (isQueueEmpty()) {
-                    printf("kolejka jest pusta.\n");
+                    printf("The queue is empty.\n");
                 }
                 else {
-                    printf("kolejka nie jest pusta.\n");
+                    printf("The queue is NOT empty.\n");
                 }
                 break;
 
             case 5:
                 if (isQueueFull()) {
-                    printf("kolejka jest pelna.\n");
+                    printf("The queue is full.\n");
                 }
                 else {
-                    printf("kolejka nie jest pelna.\n");
+                    printf("The queue is NOT full.\n");
                 }
                 break;
 
             case 6:
-                //zakonczenie programu
+
                 return 0;
 
             default:
-                printf("Wybierz wlasciwa opcje.\n\n");
+                printf("Choose a right option.\n\n");
                 break;
         }
     }
